@@ -59,5 +59,12 @@ void display(){
     int FRONT_position = FRONT;
     int REAR_positionn = REAR;
 
-   
+    //cek apakah antrian kosong
+    if (FRONT == -1){
+        cout << "Queue is Empty\n";
+        return;
+    }
+    cout << "\nElements is the queue are ...\n";
+
+    
 };
