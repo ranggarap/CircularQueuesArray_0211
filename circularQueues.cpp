@@ -74,5 +74,13 @@ void display(){
         }
         cout << endl;
     }
+    else {
+        // jika  front_position > Rear_position, iterasi dari FRONT hingga akhir array
+    while (FRONT_position <= max - 1){
+        cout << queues_array[FRONT_position] << "  ";
+        FRONT_position++;
+    }
+    FRONT_position =0;
+
     
 };
