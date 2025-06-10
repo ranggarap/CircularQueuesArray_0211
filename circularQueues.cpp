@@ -42,5 +42,17 @@ void remove (){
     } 
     cout << "\n The element delected from the queue is:" << queues_array[FRONT] << "\n";
 
-    
+    // cek jika antrian hanya memiliki 1 elemen
+    if (FRONT== REAR){
+        FRONT= -1;
+        REAR = -1;
+    }
+    else{
+        // jika element yg di hapus berada diposisi terakhir array, kembali ke awal array
+        if (FRONT == max -1)
+            FRONT = 0;
+        else
+        FRONT - FRONT + 1;
+    }
+}
 };
