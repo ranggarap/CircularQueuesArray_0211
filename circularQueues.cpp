@@ -56,15 +56,17 @@ public:
      * 
      * 
      */
-    void insert(){
-        int num;
-        cout <<"enter a number: ";
-        cin >> num;
-        cout << endl;
+    void insert(){///fungsi ini bertujuan untuk memasukkan sebuah angka ke dalam antrian (queue).
+        ///pengguna akan di minta memasukkan sebuah bilangan,lalu bilangan akan di proses(dimasukan ke)
+        int num;/// public variable num for input data
+        cout <<"enter a number: ";/// menampilkan tulisan "enter a number"
+        cin >> num;/// mengambil input dari pengguna melalui keybord dan menyimpan ke variabel num
+        cout << endl;///mengakhiri program yg telah di jalankan
 
         // cek apakah antrian penuh
-        if ((FRONT == 0 && REAR == max -1) || (FRONT == REAR +1)){
-            cout << "\nQueue overflow\n";
+        if ((FRONT == 0 && REAR == max -1) || (FRONT == REAR +1))
+        {
+            cout << "\nQueue overflow\n";///Tampilkan pesan bahwa antrian penuh
             return;
         } 
         // cek apakah antrian kosong
@@ -81,6 +83,10 @@ public:
         }
         queues_array [REAR] =num;
     }
+    /**
+     * @brief method to delete data from queues
+     * menghapus elemen front dari queues dan menyesuaikan index depan
+     */
 void remove (){
     //cek apakah antrian kosong 
     if (FRONT== -1){
@@ -88,13 +94,12 @@ void remove (){
         return;
     } 
     cout << "\n The element delected from the queue is:" << queues_array[FRONT] << "\n";
-
-    // cek jika antrian hanya memiliki 1 elemen
+    /// cek jika antrian hanya memiliki 1 elemen lalu front dan rear akan menjadi -1
     if (FRONT== REAR){
         FRONT= -1;
-        REAR = -1;
+        REAR = -1;///reset queues
     }
-    else{
+    else{///memperbaiki front dengan circular
         // jika element yg di hapus berada diposisi terakhir array, kembali ke awal array
         if (FRONT == max -1)
             FRONT = 0;
@@ -102,19 +107,24 @@ void remove (){
         FRONT - FRONT + 1;
     }
 }
+/**
+ * @brief method untuk menampilkan antrian
+ * mencetak elemen dari front ke rear ,jika antrian kosong tampilkan pesan yg sesuai
+ */
 void display(){
-    int FRONT_position = FRONT;
-    int REAR_position = REAR;
+    int FRONT_position = FRONT;///public variabel front di gunakan untuk mendapatkan posisi front di antrian
+    int REAR_position = REAR;///public variabel rear di gunakan untuk mendapatkan posisi rear di antrian
 
     //cek apakah antrian kosong
-    if (FRONT == -1){
+    if (FRONT == -1){///method untuk mengecek jika antrian kosong
         cout << "Queue is Empty\n";
         return;
     }
     cout << "\nElements is the queue are ...\n";
 
     // jika front_position <= Rear_position, iterasi dari FRONT hingga REAR 
-    if (FRONT_position <= REAR_position){
+    if (FRONT_position <= REAR_position)///jika posisi front itu sama dengan / lebih kecil dar posisi rear print tampilkan dari front ke rear 
+    {
         while (FRONT_position <= REAR_position){
             cout << queues_array[FRONT_position] << "  ";
             FRONT_position++;
@@ -138,9 +148,14 @@ void display(){
         }
     }
 };
+/**
+ * @brief main variable for running data queues
+ * 
+ * @return int 
+ */
 int main(){
-    Queues q;
-    char ch;
+    Queues q;///create object from the class queues
+    char ch;///cerate object ch with type data rear
 
     while (true)
     {
