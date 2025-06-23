@@ -1,15 +1,61 @@
+/**
+ * @mainpage Documentation circular Queues
+ * 
+ * @section Introduction
+ * this project from structur data 
+ * this project use structur data queues,implements circular arrays.
+ * 
+ * @section Operations
+ * - en queue for insert elements into queues
+ * - de queue for delete elements from queues
+ * - show data/display
+ * 
+ * @section How to use 
+ * 1. Insert 
+ * 2. Delete
+ * 3. Display
+ * 4. Exit
+ * 
+ * @author yProfil
+ * - Nama  :Rangga Fadhilah Akbar
+ * - Nim   :20240140211
+ * - Kelas :E
+ * @brief 
+ * @version 0.1
+ * @date 2025-06-23
+ * 
+ * @copyright Gibran@umy.ac.id (c) 2025
+ * 
+ */
+ 
 #include <iostream>
 using namespace std;
-
+/**
+ * @class Queues
+ * @brief This class is for operation queues
+ * 
+ */
 class Queues{
-    int FRONT, REAR, max =5;
-    int queues_array[5];
+private:
+    int FRONT;/// private variable front for indicate the frist element
+    int REAR ;/// private variable rear to for indicate the last element
+    int max =5;/// private variable max to for maximum capasity of element
+    int queues_array[5];///private variable queue_array for store element
 public:
+/**
+ * @brief Construct a new Queues object
+ * set default queues null
+ * with front = -1 and rear =-1
+ */
     Queues() {
         FRONT = -1;
         REAR = -1;
     }
-
+    /**
+     * @brief method for entering data into a queues
+     * 
+     * 
+     */
     void insert(){
         int num;
         cout <<"enter a number: ";
@@ -33,6 +79,7 @@ public:
             else 
             REAR = REAR + 1;
         }
+        queues_array [REAR] =num;
     }
 void remove (){
     //cek apakah antrian kosong 
@@ -57,7 +104,7 @@ void remove (){
 }
 void display(){
     int FRONT_position = FRONT;
-    int REAR_positionn = REAR;
+    int REAR_position = REAR;
 
     //cek apakah antrian kosong
     if (FRONT == -1){
@@ -141,4 +188,5 @@ int main(){
         cout << "check for the values entered." << endl;
     }
     
+    }
 }
